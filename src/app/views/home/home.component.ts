@@ -9,5 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  title: string = "Angulèr"
 
 }

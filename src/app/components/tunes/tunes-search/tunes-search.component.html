@@ -1,9 +1,3 @@
-<h3>Tunes</h3>
-
 <form (keyup.enter)="getMusic(songInput.value)">
   <input #songInput type="text" />
 </form>
-
-<ul>
-  <li *ngFor="let song of songs">{{ song | json }}</li>
-</ul>
