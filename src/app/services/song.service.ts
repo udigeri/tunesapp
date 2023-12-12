@@ -20,7 +20,7 @@ export class SongService {
   public addSong(name: string): void {
     this.songs.push({
       id: Math.max(...this.songs.map((s) => s.id)) + 1,
-      artist: name + 'daco',
+      artist: name + ' prilepok',
       album: name,
     });
   }

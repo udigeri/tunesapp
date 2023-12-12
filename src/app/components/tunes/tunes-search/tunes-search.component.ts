@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SongService } from '../../../services/song.service';
-import { Song } from '../../../types';
 
 @Component({
   selector: 'tunes-search',
@@ -12,6 +11,8 @@ import { Song } from '../../../types';
   styleUrl: './tunes-search.component.scss'
 })
 export class TunesSearchComponent implements OnInit{
+
+  @Output() newSongHaveArrived = new EventEmitter<string>()
 
   constructor(private songService: SongService) {}
 

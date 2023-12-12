@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnChanges,
+  SimpleChange,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SongService } from '../../../services/song.service';
 import { Song } from '../../../types';
@@ -8,16 +14,20 @@ import { Song } from '../../../types';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './tunes-list.component.html',
-  styleUrl: './tunes-list.component.scss'
+  styleUrl: './tunes-list.component.scss',
 })
-export class TunesListComponent implements OnInit {
+export class TunesListComponent implements OnInit, OnChanges {
   songs: Song[] = [];
+  @Input() newSong: string = '';
 
-  constructor(private songService: SongService) {
-  }
+  constructor(private songService: SongService) {}
 
   ngOnInit(): void {
     this.songs = this.songService.getSongs();
   }
 
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }): void {
+    if (!changes['newSong'].isFirstChange())
+      this.songService.addSong(changes['newSong'].currentValue);
+  }
 }
