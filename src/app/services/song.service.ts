@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { iTunesService } from './itunes.service';
 import { Song } from '../types';
 
 @Injectable({
@@ -11,10 +12,10 @@ export class SongService {
     { id: 3, artist: 'U2', album: 'Live' },
   ];
 
-  constructor() {}
+  constructor(private iTunes: iTunesService) {}
 
-  public getSongs(): Song[] {
-    return this.songs;
+  public getSongs(query: string) {
+    if (query) console.log(this.iTunes.getData(query));
   }
 
   public addSong(name: string): void {

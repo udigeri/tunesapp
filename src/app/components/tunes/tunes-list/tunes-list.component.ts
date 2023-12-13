@@ -23,11 +23,10 @@ export class TunesListComponent implements OnInit, OnChanges {
   constructor(private songService: SongService) {}
 
   ngOnInit(): void {
-    this.songs = this.songService.getSongs();
+    //this.songs = this.songService.getSongs();
   }
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }): void {
-    if (!changes['newSong'].isFirstChange())
-      this.songService.addSong(changes['newSong'].currentValue);
+    this.songService.addSong(changes['newSong'].currentValue);
   }
 }

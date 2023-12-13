@@ -19,10 +19,10 @@ export class TunesSearchComponent implements OnInit {
   ngOnInit(): void {}
 
   getMusic(query: string): void {
-    this.songService.addSong(query);
+    this.songService.getSongs(query);
   }
 
   search = debounce((query: string): void => {
-    console.log(query)
+    this.getMusic(query)
   }, 500)
 }
