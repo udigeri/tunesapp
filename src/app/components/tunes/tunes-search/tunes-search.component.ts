@@ -24,5 +24,5 @@ export class TunesSearchComponent implements OnInit {
 
   search = debounce((query: string): void => {
     this.getMusic(query)
-  }, 500)
+  }, 700)
 }

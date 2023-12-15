@@ -8,15 +8,19 @@ export class iTunesService {
     https://itunes.apple.com/search
       ?term=%QUERY%
       &entity=musicTrack
-      &limit=5
+      &limit=3
   `;
 
   constructor(private httpClient: HttpClient) { }
 
-  public getData(query: string): string {
+  public getData(query: string) {
     const url: string = this.url
       .replace('%QUERY%', encodeURI(query))
       .replace(/\s/g, '');
-    return url;
+    return this.sendRequest(url);
+  }
+
+  sendRequest(url: string){
+    return this.httpClient.get(url);
   }
 }

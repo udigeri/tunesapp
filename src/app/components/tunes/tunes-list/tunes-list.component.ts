@@ -1,9 +1,6 @@
 import {
   Component,
-  Input,
   OnInit,
-  OnChanges,
-  SimpleChange,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SongService } from '../../../services/song.service';
@@ -16,17 +13,15 @@ import { Song } from '../../../types';
   templateUrl: './tunes-list.component.html',
   styleUrl: './tunes-list.component.scss',
 })
-export class TunesListComponent implements OnInit, OnChanges {
+export class TunesListComponent implements OnInit {
   songs: Song[] = [];
-  @Input() newSong: string = '';
 
   constructor(private songService: SongService) {}
 
   ngOnInit(): void {
-    //this.songs = this.songService.getSongs();
+    this.songService.newSongsHaveArrived.subscribe((data: Song[]) => {
+      this.songs = data;
+    });
   }
 
-  ngOnChanges(changes: { [propKey: string]: SimpleChange }): void {
-    this.songService.addSong(changes['newSong'].currentValue);
-  }
 }

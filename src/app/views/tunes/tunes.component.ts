@@ -13,7 +13,8 @@ import { TunesListComponent } from '../../components/tunes/tunes-list/tunes-list
     <div class="tunes">
       <h3>{{ title }}</h3>
       <tunes-search (newSongHaveArrived)="newSongCame($event)"></tunes-search>
-      <tunes-list [newSong]="newSong"></tunes-list>
+      <tunes-list></tunes-list>
+      <p>{{ newSong }}</p>
     </div>
   `,
 })
@@ -23,5 +24,6 @@ export class TunesComponent {
 
   newSongCame(value: string): void {
     this.newSong = value;
+    console.log(value)
   }
 }
