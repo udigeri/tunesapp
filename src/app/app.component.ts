@@ -9,6 +9,9 @@ import { TunesComponent } from './views/tunes/tunes.component';
 
 // Components
 import { TheNavigationComponent } from './components/the-navigation/the-navigation.component';
+import { TunesSongComponent } from './components/tunes/tunes-song/tunes-song.component';
+import { SongifyPipe } from './pipes/songify.pipe';
+import { ShortenPipe } from './pipes/shorten.pipe';
 
 
 @Component({
@@ -21,6 +24,9 @@ import { TheNavigationComponent } from './components/the-navigation/the-navigati
     AboutComponent,
     TunesComponent,
     TheNavigationComponent,
+    TunesSongComponent,
+    SongifyPipe,
+    ShortenPipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

@@ -2,11 +2,17 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TunesSearchComponent } from '../../components/tunes/tunes-search/tunes-search.component';
 import { TunesListComponent } from '../../components/tunes/tunes-list/tunes-list.component';
+import { TunesSongComponent } from '../../components/tunes/tunes-song/tunes-song.component';
 
 @Component({
   selector: 'app-tunes',
   standalone: true,
-  imports: [CommonModule, TunesSearchComponent, TunesListComponent],
+  imports: [
+    CommonModule,
+    TunesSearchComponent,
+    TunesListComponent,
+    TunesSongComponent,
+  ],
   // templateUrl: './tunes.component.html',
   styleUrl: './tunes.component.scss',
   template: `
@@ -24,6 +30,6 @@ export class TunesComponent {
 
   newSongCame(value: string): void {
     this.newSong = value;
-    console.log(value)
+    console.log(value);
   }
 }
