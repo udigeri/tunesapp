@@ -20,7 +20,6 @@ import { TunesSongComponent } from '../../components/tunes/tunes-song/tunes-song
       <h3>{{ title }}</h3>
       <tunes-search (newSongHaveArrived)="newSongCame($event)"></tunes-search>
       <tunes-list></tunes-list>
-      <p>{{ newSong }}</p>
     </div>
   `,
 })
