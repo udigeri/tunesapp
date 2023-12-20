@@ -16,7 +16,7 @@ import { TunesSongComponent } from '../../components/tunes/tunes-song/tunes-song
   // templateUrl: './tunes.component.html',
   styleUrl: './tunes.component.scss',
   template: `
-    <div class="tunes">
+    <div>
       <h3>{{ title }}</h3>
       <tunes-search (newSongHaveArrived)="newSongCame($event)"></tunes-search>
       <tunes-list></tunes-list>
